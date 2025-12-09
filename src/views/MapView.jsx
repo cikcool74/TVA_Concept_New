@@ -62,7 +62,7 @@ export function MapView({ progress, onSelect, onBack }) {
         </div>
       </div>
 
-      <div className="relative overflow-hidden rounded-2xl border border-[#1f2937] bg-[#0b0f1a]" ref={containerRef}>
+      <div className="relative overflow-hidden rounded-2xl border border-[#1f2937] bg-[#0b0f1a] overflow-x-auto" ref={containerRef}>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.08),transparent_45%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:40px_40px]" />
         <div className="relative px-4 pb-10 pt-6">
@@ -85,10 +85,10 @@ export function MapView({ progress, onSelect, onBack }) {
           </svg>
 
           <div
-            className="relative z-10 grid gap-6 max-w-5xl mx-auto pb-6"
+            className="relative z-10 grid gap-4 md:gap-6 max-w-6xl mx-auto pb-6 min-w-[760px]"
             style={{
-              gridTemplateColumns: "repeat(5, minmax(0, 1fr))",
-              gridAutoRows: "minmax(120px, auto)",
+              gridTemplateColumns: "repeat(5, minmax(180px, 1fr))",
+              gridAutoRows: "minmax(160px, auto)",
             }}
           >
             {MAP_NODES.map((node) => {
@@ -105,8 +105,8 @@ export function MapView({ progress, onSelect, onBack }) {
                   style={{
                     gridColumn: node.col || "auto",
                     gridRow: node.row || "auto",
-                    minWidth: "190px",
-                    maxWidth: "220px",
+                    minWidth: "180px",
+                    maxWidth: "230px",
                   }}
                   ref={(el) => {
                     if (el) nodeRefs.current[node.id] = el;
